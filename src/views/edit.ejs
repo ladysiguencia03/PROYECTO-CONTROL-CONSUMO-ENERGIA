@@ -1,0 +1,41 @@
+<%- include("partials/_header") %>
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-5 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <form action="/edit/<%= task._id %>" method="post">
+            <div class="form-group">
+              <input class="form-control" type="text" name="nombre_electrodomestico" placeholder="nombre_electrodomestico" value="<%= task.nombre_electrodomestico %>">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="voltaje" placeholder="voltaje" value="<%= task.voltaje %>">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="corriente" placeholder="corriente" value="<%= task.corriente %>">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="frecuencia" placeholder="frecuencia" value="<%= task.frecuencia %>">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="consumo" placeholder="consumo" value="<%= task.consumo %>"> 
+            </div>
+            
+            <div class="form-group">
+              <input class="form-control" type="text" name="angulo" placeholder="angulo" value="<%= task.angulo %>">
+            </div>
+            
+            <button class="btn btn-primary" type="submit">
+              Update 
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <%- include("partials/_footer") %>  

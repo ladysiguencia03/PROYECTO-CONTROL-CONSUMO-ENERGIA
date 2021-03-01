@@ -1,0 +1,83 @@
+
+<%- include("partials/_header") %>
+
+<div class="container">
+
+    <div class="row">
+      <!--FORM-->
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-body">
+            <form action="/add" method="post">
+              <div class="form-group">
+                <input class="form-control" type="text" name="nombre_electrodomestico" placeholder="nombre_electrodomestico">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="voltaje" placeholder="voltaje">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="corriente" placeholder="corriente">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="frecuencia" placeholder="frecuencia">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="consumo" placeholder="consumo">
+              </div>
+              
+              <div class="form-group">
+                <input class="form-control" type="text" name="angulo" placeholder="angulo">
+              </div>
+              
+              <button class="btn btn-primary" type="submit">
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- LIST -->
+      <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>Titulo</th>
+              <th>voltaje</th>
+              <th>corriente</th>
+              <th>frecuencia</th>
+              <th>consumo</th>
+              <th>angulo</th>
+              <th>operacion</th>
+             
+            </tr>
+          </thead>
+          
+            <tbody>
+              <% for(var i=0; i < tasks.length; i++) { %>
+                <tr>
+                  <td><%= i + 1 %></td>
+                  <td><strong><%= tasks[i].nombre_electrodomestico %></strong></td>
+                  <td><%= tasks[i].voltaje %></td>
+                  <td><%= tasks[i].corriente %></td>
+                  <td><%= tasks[i].frecuencia %></td>
+                  <td><%= tasks[i].consumo %></td>
+                  <td><%= tasks[i].angulo %></td>
+                </tr>
+                <td>
+                  <a href="/turn/<%= tasks[i]._id %>" class="<%= tasks[i].status ? 'btn btn-success' : 'btn btn-dark'%>">Done</a>
+                  <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">Delete</a>
+                  <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">Edit</a>
+                
+                 
+                </td>
+                <% } %>
+            </tbody>
+          </table>
+           
+      </div>
+    </div>
+  
+  </div>
+<%- include("partials/_footer") %>  
